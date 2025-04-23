@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="form-card">
+    <h2>{{ isEdit ? 'Edit' : 'Add' }} Department</h2>
+    
+    <div *ngIf="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading department...</p>
+    </div>
+    
+    <div *ngIf="error" class="alert alert-danger">
+      {{ error }}
+    </div>
+    
+    <form *ngIf="!loading" (ngSubmit)="saveDepartment()" #departmentForm="ngForm" class="animated fadeIn">
+      <div class="form-group">
+        <label for="name">Department Name*</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          [(ngModel)]="department.name" 
+          required 
+          #nameInput="ngModel"
+          class="form-control"
+          placeholder="Enter department name"
+        >
+        <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error-message">
+          Department name is required
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" [routerLink]="['/departments']" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Cancel
+        </button>
+        <button 
+          type="submit" 
+          class="btn btn-primary" 
+          [disabled]="departmentForm.invalid || saving"
+        >
+          <span *ngIf="saving" class="spinner-sm"></span>
+          <i *ngIf="!saving" class="fas fa-save"></i>
+          {{ saving ? 'Saving...' : 'Save' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

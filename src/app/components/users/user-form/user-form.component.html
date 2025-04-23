@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="form-card">
+    <h2>{{ isEdit ? 'Edit' : 'Add' }} User</h2>
+    
+    <div *ngIf="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading user...</p>
+    </div>
+    
+    <div *ngIf="error" class="alert alert-danger">
+      <i class="fas fa-exclamation-circle"></i>
+      {{ error }}
+    </div>
+    
+    <form *ngIf="!loading" (ngSubmit)="saveUser()" #userForm="ngForm" class="animated fadeIn">
+      <div class="form-group">
+        <label for="fullName">Full Name*</label>
+        <input 
+          type="text" 
+          id="fullName" 
+          name="fullName" 
+          [(ngModel)]="user.fullName" 
+          required 
+          #fullNameInput="ngModel"
+          class="form-control"
+          placeholder="Enter full name"
+        >
+        <div *ngIf="fullNameInput.invalid && (fullNameInput.dirty || fullNameInput.touched)" class="error-message">
+          Full name is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="departmentId">Department*</label>
+        <select 
+          id="departmentId" 
+          name="departmentId" 
+          [(ngModel)]="user.departmentId" 
+          required 
+          #departmentInput="ngModel"
+          class="form-control"
+        >
+          <option [ngValue]="0" disabled>Select a department</option>
+          <option *ngFor="let dept of departments" [ngValue]="dept.id">{{ dept.name }}</option>
+        </select>
+        <div *ngIf="departmentInput.invalid && (departmentInput.dirty || departmentInput.touched)" class="error-message">
+          Please select a department
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" [routerLink]="['/departments']" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Cancel
+        </button>
+        <button 
+          type="submit" 
+          class="btn btn-primary" 
+          [disabled]="userForm.invalid || saving"
+        >
+          <span *ngIf="saving" class="spinner-sm"></span>
+          <i *ngIf="!saving" class="fas fa-save"></i>
+          {{ saving ? 'Saving...' : 'Save' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
