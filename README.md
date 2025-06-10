@@ -1,9 +1,9 @@
-# 🚀 TNS Frontend
+# TNS Frontend 🚀
 
 ## 📋 Overview
 This project is an Angular-based frontend application designed to interface with a .NET 8 backend API and PostgreSQL database. It provides a clean and intuitive interface for managing departments and users within an organization.
 
-## 🛠 Tools Used
+## 💻 Tech Stack
 - ⚡ Angular (v19)
 - 📝 TypeScript
 - 🔄 RxJS for reactive programming
@@ -81,7 +81,7 @@ src/
 ### Installation Steps
 1. 📥 Clone the repository
 ```bash
-git clone <repository-url>
+git clone <https://github.com/windme2/tns-frontend.git>
 cd tns-frontend
 ```
 
