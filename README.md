@@ -1,6 +1,5 @@
 # TNS Frontend 🚀
 
-## 📋 Overview
 This project is an Angular-based frontend application designed to interface with a .NET 8 backend API and PostgreSQL database. It provides a clean and intuitive interface for managing departments and users within an organization.
 
 ## 💻 Tech Stack
