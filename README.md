@@ -10,31 +10,6 @@ This project is an Angular-based frontend application designed to interface with
 - 🎨 CSS for styling
 - 📱 Responsive design principles
 
-## 📁 Project Structure
-```
-src/
-├── app/
-│   ├── components/
-│   │   ├── departments/
-│   │   │   ├── department-list/
-│   │   │   └── department-form/
-│   │   ├── users/
-│   │   │   ├── user-list/
-│   │   │   └── user-form/
-│   │   └── nav/
-│   ├── models/
-│   │   ├── department.model.ts
-│   │   └── user.model.ts
-│   ├── services/
-│   │   └── api.service.ts
-│   ├── app.component.ts
-│   ├── app.component.html
-│   ├── app.component.css
-│   └── app.routes.ts
-├── global_styles.css
-└── main.ts
-```
-
 ## ✨ Features
 
 ### 🏢 Department Management
@@ -69,6 +44,8 @@ src/
 - ✅ Form validation for data integrity
 - 🔄 Loading states and error handling
 - ⚠️ Confirmation dialogs for destructive actions
+
+---
 
 ## 🚀 Getting Started
 
